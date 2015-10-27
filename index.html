@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>brohGen</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  </head>
+  <style>
+	.bubble 
+	{
+	position: relative;
+	width: 250px;
+	height: 120px;
+	padding: 0px;
+	background: #96BDC5;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	}
+
+	.bubble:after 
+	{
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 15px 41px 15px 0;
+	border-color: transparent #96BDC5;
+	display: block;
+	width: 0;
+	z-index: 1;
+	left: -41px;
+	top: 45px;
+	}
+
+
+  </style>
+  <script>
+	function callCoastGahd(species, broh){
+	
+		if (species == 'babyWheel') {
+			document.getElementById('bubble').innerHTML = "<p class='bubble' style:'margin:8px;padding:10px;'>holee shit dood its a " + species + "!</p>";
+			return;
+		}  
+		if ((species == 'seaTuhtal') || (species == 'tuner') || (species == 'floundah')) {
+			document.getElementById('bubble').innerHTML = "<p class='bubble' style:'margin:8px;padding:10px;'>its a fackin " + species + " dood</p>";
+			return;
+		}
+		//there is a species, just unknown
+		if (species) {
+			document.getElementById('bubble').innerHTML = "<p class='bubble' style:'margin:8px;padding:10px;'>we ah seein' some shit we ain't never seen before " + broh + "</p>";
+		}
+		else {
+			document.getElementById('bubble').innerHTML = "<div class='alert alert-danger' role='alert'>What is that thing d00d?</div><p class='bubble' style:'margin:8px;padding:10px;'>Try one of these: babyWheel,seaTuhtal,tuner,floundah</p>";
+			return;
+		} 
+
+	}
+	
+  </script>
+	
+  <body>
+
+   <div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<img src="https://c.o0bg.com/rf/image_460w/Boston/2011-2020/2015/09/22/BostonGlobe.com/Metro/Images/unnamed-8795.jpg" alt="Mike">
+		</div>
+		<div class="col-md-8" id="bubble">
+		</div>
+	</div>
+		</br></br>
+		<div class="input-group">
+			
+		  <span class="input-group-addon">Input fish/species</span>
+		  <input type="text" class="form-control" id="species">
+		</div></br>
+		<div class="input-group">
+		  <span class="input-group-addon">Broh's name</span>
+		  <input type="text" class="form-control" id="broh">
+		</div></br>
+		<div class="btn-group">
+		  <button id="test" class="btn btn-succcess" onclick="callCoastGahd(document.getElementById('species').value, document.getElementById('broh').value)">Submit</button>
+		</div>
+	</div>
+  </body>
+</html>
