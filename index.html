@@ -51,8 +51,8 @@
 			document.getElementById('bubble').innerHTML = "<p class='bubble' style:'margin:8px;padding:10px;'>its a fackin " + species + " dood</p>";
 			return;
 		}
-		//there is a species, just unknown
-		if (species) {
+		//there isn't a species, just unknown
+		if (species == 'unknown') {
 			document.getElementById('bubble').innerHTML = "<p class='bubble' style:'margin:8px;padding:10px;'>we ah seein' some shit we ain't never seen before " + broh + "</br>Try one of these: babyWheel,seaTuhtal,tuner,floundah</p>";
 		}
 		else {
@@ -77,8 +77,16 @@
 		</br></br>
 		<div class="input-group">
 			
-		  <span class="input-group-addon">Input fish/species</span>
-		  <input type="text" class="form-control" id="species">
+			<span class="input-group-addon">Input fish/species</span>
+			
+			<select class="form-control" id="species">
+				<option value="unknown" selected>I don't know what this is</option>
+				<option value="babyWheel">baby wheel</option>
+				<option value="seaTuhtal">sea tuhtal</option>
+				<option value="tuner">tooner</option>
+				<option value="flundah">floundah</option>
+			</select>
+			
 		</div></br>
 		<div class="input-group">
 		  <span class="input-group-addon">Broh's name</span>
