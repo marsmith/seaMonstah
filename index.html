@@ -8,7 +8,9 @@
     <title>brohGen</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
   </head>
   <style>
@@ -41,24 +43,39 @@
 
   </style>
   <script>
+  var serverURL = 'http://localhost:49160/query'
+
 	function callCoastGahd(species, broh){
+
+		var data = {species:species, broh:broh};
+
+		$.post(serverURL, {
+				species:species, 
+				broh:broh
+			},
+    function(data, status){
+        //alert("Data: " + data + "\nStatus: " + status);
+				document.getElementById('bubble').innerHTML = data;
+				//return;
+    });
+
 	
-		if (species == 'babyWheel') {
-			document.getElementById('bubble').innerHTML = "<p class='bubble' style:'margin:8px;padding:10px;'>holee shit dood its a " + species + "!</p>";
-			return;
-		}  
-		if ((species == 'seaTuhtal') || (species == 'tuner') || (species == 'floundah')) {
-			document.getElementById('bubble').innerHTML = "<p class='bubble' style:'margin:8px;padding:10px;'>its a fackin " + species + " dood</p>";
-			return;
-		}
-		//there isn't a species, just unknown
-		if (species == 'unknown') {
-			document.getElementById('bubble').innerHTML = "<p class='bubble' style:'margin:8px;padding:10px;'>we ah seein' some shit we ain't never seen before " + broh + "</br>Try one of these: babyWheel,seaTuhtal,tuner,floundah</p>";
-		}
-		else {
-			document.getElementById('bubble').innerHTML = "<div class='alert alert-danger' role='alert'>What is that thing d00d?</div><p class='bubble' style:'margin:8px;padding:10px;'>Try one of these: babyWheel,seaTuhtal,tuner,floundah</p>";
-			return;
-		} 
+		// if (species == 'babyWheel') {
+		// 	document.getElementById('bubble').innerHTML = "<p class='bubble' style:'margin:8px;padding:10px;'>holee shit dood its a " + species + "!</p>";
+		// 	return;
+		// }  
+		// if ((species == 'seaTuhtal') || (species == 'tuner') || (species == 'floundah')) {
+		// 	document.getElementById('bubble').innerHTML = "<p class='bubble' style:'margin:8px;padding:10px;'>its a fackin " + species + " dood</p>";
+		// 	return;
+		// }
+		// //there isn't a species, just unknown
+		// if (species == 'unknown') {
+		// 	document.getElementById('bubble').innerHTML = "<p class='bubble' style:'margin:8px;padding:10px;'>we ah seein' some shit we ain't never seen before " + broh + "</br>Try one of these: babyWheel,seaTuhtal,tuner,floundah</p>";
+		// }
+		// else {
+		// 	document.getElementById('bubble').innerHTML = "<div class='alert alert-danger' role='alert'>What is that thing d00d?</div><p class='bubble' style:'margin:8px;padding:10px;'>Try one of these: babyWheel,seaTuhtal,tuner,floundah</p>";
+		// 	return;
+		// } 
 
 	}
 	
